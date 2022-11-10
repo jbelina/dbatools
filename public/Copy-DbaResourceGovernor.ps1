@@ -229,7 +229,7 @@ function Copy-DbaResourceGovernor {
             } elseif ($ExcludeResourcePool) {
                 $pool = $sourceServer.ResourceGovernor.ResourcePools | Where-Object Name -NotIn $ExcludeResourcePool
             } else {
-                $pools = $sourceServer.ResourceGovernor.ResourcePools | Where-Object { $_.Name -notin "internal", "default" }
+                $pools = $sourceServer.ResourceGovernor.ResourcePools | Where-Object { $_.Name -notin "private", "default" }
             }
 
             Write-Message -Level Verbose -Message "Migrating pools."
