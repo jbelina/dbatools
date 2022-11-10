@@ -171,7 +171,7 @@ if (-not (Test-Path -Path "$psScriptRoot\dbatools.ps1") -or $script:serialimport
     Write-ImportTime -Text "Loading internal commands via dotsource"
 
     # All exported functions
-    foreach ($file in (Get-ChildItem -Path "$script:PSModuleRoot/functions/" -Recurse -Filter *.ps1)) {
+    foreach ($file in (Get-ChildItem -Path "$script:PSModuleRoot/public/" -Recurse -Filter *.ps1)) {
         . $file.FullName
     }
 
